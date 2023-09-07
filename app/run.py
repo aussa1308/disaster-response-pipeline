@@ -43,8 +43,10 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
 
-    category_names = df.iloc[:, 4:].columns
-    category_counts = (df.iloc[:, 4:]!=0).sum()
+    df_category = pd.DataFrame((df.iloc[:, 4:]!=0).sum()).sort_values(by=0 ,ascending=False).head(10).reset_index()
+    
+    category_names = df_category['index']
+    category_counts = df_category[0]
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
