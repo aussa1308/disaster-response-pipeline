@@ -20,3 +20,18 @@ A web-based interface is included to help emergency responders input received me
 ### Models Folder
 - `train_classifier.py`: Python script for machine learning operations.
 - `classifier.pkl`: Serialized machine learning model.
+
+## How to Run
+
+To execute the program, you'll need to perform several tasks in the project folder:
+
+- Initialize the database and clean the data by running:
+python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/disaster_response_db.db
+
+- Load data from the database, train your machine learning model, and save it as a pickle file with this command:
+python models/train_classifier.py data/disaster_response_db.db models/classifier.pkl
+
+- To launch the web application, navigate to the app folder and type:
+python run.py
+
+Once the web app is running, you can access it via http://0.0.0.0:3001/
