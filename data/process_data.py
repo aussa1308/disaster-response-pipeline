@@ -37,8 +37,8 @@ def load_data(messages_filepath, categories_filepath):
     Returns:
     pd.DataFrame: Merged dataset containing messages and categories.
     """
-    messages   = pd.read_csv('disaster_messages.csv')
-    categories = pd.read_csv('disaster_categories.csv')
+    messages   = pd.read_csv(messages_filepath)
+    categories = pd.read_csv(categories_filepath)
     
     df = messages.merge(categories, on='id')
     
