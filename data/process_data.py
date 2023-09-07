@@ -90,7 +90,7 @@ def save_data(df, database_filename):
     Returns:
     None
     """    
-    engine = create_engine('sqlite:///DisasterResponse.db')
+    engine = create_engine('sqlite:///'+database_filename)
     df.to_sql('disaster_response', engine, if_exists='replace', index=False)
     
 
