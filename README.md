@@ -29,7 +29,7 @@ To execute the program, you'll need to perform several tasks in the project fold
 python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
 
 - Load data from the database, train your machine learning model, and save it as a pickle file with this command:
-python models/train_classifier.py data/disaster_response_db.db models/classifier.pkl
+python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
 
 - To launch the web application, navigate to the app folder and type:
 python run.py
