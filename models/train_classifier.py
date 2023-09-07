@@ -120,28 +120,35 @@ def build_model():
         ])),
         ('classifier', MultiOutputClassifier(AdaBoostClassifier()))
     ])
-
-    return model
+    
+    param_grid = {
+        'n_estimators': [100, 200, 300],
+        'max_depth': [None, 5, 10],
+        'min_samples_split': [2, 5, 10]
+    }
+    
+    # Instantiate GridSearchCV
+    grid_search = GridSearchCV(pipeline, param_grid, cv=5)
+    
+    return grid_search
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
-        """
+    """
     Evaluate the model performance on test data and print the classification report.
-
+    
     Parameters:
     model (Pipeline): Trained model
     X_test (pd.Series): Test messages
     Y_test (pd.DataFrame): True categories for test messages
     category_names (pd.Index): Names of categories
-
+    
     Returns:
     None
     """
-    
     y_predict_test  = model.predict(X_test)
 
     print(classification_report(Y_test.values, y_predict_test, target_names=category_names))
-
 
 def save_model(model, model_filepath):
     """
