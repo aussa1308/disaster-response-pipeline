@@ -26,7 +26,7 @@ A web-based interface is included to help emergency responders input received me
 To execute the program, you'll need to perform several tasks in the project folder:
 
 - Initialize the database and clean the data by running:
-python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/disaster_response_db.db
+python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
 
 - Load data from the database, train your machine learning model, and save it as a pickle file with this command:
 python models/train_classifier.py data/disaster_response_db.db models/classifier.pkl
